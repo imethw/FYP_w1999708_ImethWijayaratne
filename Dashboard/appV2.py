@@ -157,7 +157,9 @@ def load_data():
         primary_position, value_gbp, wage_gbp, etc.
     We only add display-friendly scaled columns here.
     """
-    df = pd.read_csv("cleaned_player_data.csv")
+    import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+df = pd.read_csv(os.path.join(BASE_DIR, "cleaned_player_data.csv"))
 
     # Convenience display columns
     df["value_gbp_m"] = df["value_gbp"] / 1_000_000
