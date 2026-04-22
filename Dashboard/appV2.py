@@ -163,7 +163,7 @@ df = pd.read_csv(os.path.join(BASE_DIR, "cleaned_player_data.csv"))
 
     # Convenience display columns
     df["value_gbp_m"] = df["value_gbp"] / 1_000_000
-    df["wage_gbp_k"]  = df["wage_gbp"]  / 1_000
+df["wage_gbp_k"]  = df["wage_gbp"]  / 1_000
 
     # Round computed scores for display
     df["value_score"]       = df["value_score"].round(2)
