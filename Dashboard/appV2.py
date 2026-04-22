@@ -150,21 +150,18 @@ POSITION_WEIGHTS = {
 # ── Data loader ────────────────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    """
-    Loads cleaned_player_data.csv — exported by FYP_NEWCode_V2.ipynb.
+    """ Loads cleaned_player_data.csv — exported by FYP_NEWCode_V2.ipynb.
     The notebook already computes:
         performance_score, value_score, wage_efficiency, position_group,
         primary_position, value_gbp, wage_gbp, etc.
-    We only add display-friendly scaled columns here.
-    """
+    We only add display-friendly scaled columns here."""
     import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-df = pd.read_csv(os.path.join(BASE_DIR, "cleaned_player_data.csv"))
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    df = pd.read_csv(os.path.join(BASE_DIR, "cleaned_player_data.csv"))
 
     # Convenience display columns
     df["value_gbp_m"] = df["value_gbp"] / 1_000_000
     df["wage_gbp_k"]  = df["wage_gbp"]  / 1_000
-
     # Round computed scores for display
     df["value_score"]       = df["value_score"].round(2)
     df["performance_score"] = df["performance_score"].round(2)
